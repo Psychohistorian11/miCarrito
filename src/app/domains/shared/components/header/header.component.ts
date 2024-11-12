@@ -1,5 +1,4 @@
-import { Component, signal, inject, SimpleChanges } from '@angular/core';
-import { Product } from '../../models/product.model';
+import { Component, signal, inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../services/cart.service';
 import { RouterLinkWithHref, RouterLinkActive} from '@angular/router';
@@ -12,6 +11,7 @@ import { RouterLinkWithHref, RouterLinkActive} from '@angular/router';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+
     hideSideMenu = signal(true);
     private cartService = inject(CartService);
     cart = this.cartService.cart;

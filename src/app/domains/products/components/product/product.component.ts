@@ -8,7 +8,7 @@ import { RouterLinkWithHref } from '@angular/router';
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [UpperCasePipe, CurrencyPipe, DatePipe, ReversePipe, TimeAgoPipe, RouterLinkWithHref],
+  imports: [UpperCasePipe, CurrencyPipe, TimeAgoPipe, RouterLinkWithHref],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
