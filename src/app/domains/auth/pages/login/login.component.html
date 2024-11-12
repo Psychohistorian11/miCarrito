@@ -1,11 +1,45 @@
-<div class="bg-secondary w-screen h-screen flex flex-col">
-    <nav class="bg-primary">
-        navbar
-    </nav>
-    <div class="flex-grow">
+<div class="bg-primary w-screen h-screen flex flex-col font-mono">
+    <nav class="justify-between flex p-2">
 
-    </div>
-    <footer class="bg-primary">
-        footer
+        <div class="flex items-center space-x-4 md:space-x-4">  
+            <img src="https://nekydhfwaekmqbkcpkdc.supabase.co/storage/v1/object/public/images/logoMiCarritoSinFondo.png" class="h-12 bg-secondary rounded-full"/>
+            <span class="self-center mb:text-xl font-semibold whitespace-nowrap hidden md:block">miCarrito</span>
+        </div>
+        <div class="pt-2 md:p-4 flex space-x-2">
+            <a routerLink="/contact" class="cursor-pointer pt-2 bg-secondary rounded-lg p-2 text-orange-600 md:bg-inherit">
+                Contact
+            </a>
+            <a routerLink="/signup" class="border border-black p-2 rounded-lg hover:cursor-pointer hover:bg-black hover:text-white hidden md:block">
+                Sign Up
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow flex justify-center items-center">
+            <div class=" flex flex-col gap-2 pb-10 md:pt-20 md:pb-20 md:p-10 md:mb-10 md:border border-gray-300 md:rounded-lg items-center bg-white">
+                <a class="text-3xl  font-sans font-bold text-center mb-2">
+                    Log In to miCarrito
+                </a>
+                <input 
+                        class="border border-gray-400 rounded-lg p-3 bg-primary w-96 
+                            hover:border-gray-600 placeholder:text-black 
+                            focus:placeholder:text-gray-400 focus:border-gray-300 transition-colors duration-500
+                            placeholder:text-xs" 
+                        placeholder="Email">
+
+                <input class="border border-gray-400 rounded-lg p-3 text-white w-96 hover:border-gray-600
+                            placeholder:text-black focus:placeholder:text-white focus:placeholder:font-medium
+                            focus:bg-secondary transition-colors duration-500 placeholder:text-xs"
+                       placeholder="Password">
+                        
+            </div>
+    </main>
+
+    <footer class="items-center p-10 border border-t-gray-400 bg-white">
+        <div class="hover:text-blue-700 text-center">
+                <a routerLink="/signup" class="hover:underline cursor-pointer font-semibold">
+                    Don't have an account? Sign Up
+                </a>
+        </div>
     </footer>
 </div>

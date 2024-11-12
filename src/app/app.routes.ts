@@ -3,11 +3,16 @@ import { LayoutComponent } from '@shared/components/layout/layout.component';
 import { NotFoundComponent } from './domains/info/pages/not-found/not-found.component';
 import { LoginComponent } from './domains/auth/pages/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
+import { SignUpComponent } from './domains/auth/pages/sign-up/sign-up.component';
 
 export const routes: Routes = [
     {
         path: 'login',
         component: LoginComponent
+    },
+    {
+        path: 'signup',
+        component: SignUpComponent
     },
     {
         path: '',
