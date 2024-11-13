@@ -5,7 +5,7 @@
                 <img src="https://nekydhfwaekmqbkcpkdc.supabase.co/storage/v1/object/public/images/logoMiCarritoSinFondo.png" class="h-12"/>
                 <span class="self-center text-xl font-semibold whitespace-nowrap">miCarrito</span>
             
-            <ul class="flex space-x-6">
+            <ul class="flex space-x-6" *ngIf="!itsAdmin()">
                 <li>
                     <a routerLink="/" 
                     routerLinkActive="underline" 
@@ -14,7 +14,7 @@
                 </li>
             </ul>
         </div>
-        <div class="flex items-center">
+        <div class="flex items-center mr-5" *ngIf="!itsAdmin()">
             <button class="p-2 border rounded relative" (click)="toogleSideMenu()">
                 <div class="absolute -top-2  -left-2 rounded  h-5 w-5 bg-black text-white text-xs">
                     {{cart().length}}   

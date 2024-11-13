@@ -3,7 +3,6 @@ import { PreloadAllModules, provideRouter, withComponentInputBinding, withPreloa
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
-
 import { NgIconsModule } from '@ng-icons/core';
 import { heroUsers } from '@ng-icons/heroicons/outline';
 

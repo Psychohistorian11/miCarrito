@@ -2,6 +2,7 @@ import { Component, signal, inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../services/cart.service';
 import { RouterLinkWithHref, RouterLinkActive} from '@angular/router';
+import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -12,6 +13,10 @@ import { RouterLinkWithHref, RouterLinkActive} from '@angular/router';
 })
 export class HeaderComponent {
 
+  constructor(private authAservice: AuthService){
+
+  }
+
     hideSideMenu = signal(true);
     private cartService = inject(CartService);
     cart = this.cartService.cart;
@@ -19,5 +24,9 @@ export class HeaderComponent {
     
     toogleSideMenu(){
         this.hideSideMenu.update(prevState => !prevState)
+    }
+
+    itsAdmin(){
+      return this.authAservice.itsAdmin()
     }
 }

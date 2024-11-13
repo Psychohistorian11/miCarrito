@@ -1,0 +1,29 @@
+<aside class="border border-r-2 float-start h-screen w-80">
+    <div class="bg-primary  p-4 rounded-lg w-80">
+        <p class="font-semibold "> Main menu</p>
+    </div>
+    <div class="ml-6 mb-6 mt-6">
+        <p class=" border-b-2 border-black"> Creations</p>
+        <div class="p-4">
+            <a routerLink="create-product" class="bg-green-400 p-2 rounded-md cursor-pointer">Create new product</a>
+        </div>
+        <div class="p-4">
+            <a routerLink="get-all-products" class="bg-blue-400 p-2 rounded-md">Get all the products</a>
+        </div>
+    </div>
+
+    <div class="ml-6 ">
+        <p class="border-b-2 border-black"> Searching</p>
+        <div class="pt-4 pl-4">
+            <input class="p-2 rounded-md border border-black placeholder:text-gray-700" placeholder="search by name">       
+         </div>
+         <div class="pt-4 pl-4">
+            <input class="p-2 rounded-md border border-black placeholder:text-gray-700" placeholder="search by idProduct">       
+         </div>   
+    </div>
+</aside>
+
+<!-- Contenedor donde se renderizarán los componentes según la ruta seleccionada -->
+<div class="ml-96 mt-4 p-4">
+    <router-outlet> </router-outlet>
+  </div>

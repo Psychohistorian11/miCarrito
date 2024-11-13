@@ -20,18 +20,35 @@
                 <a class="text-3xl  font-sans font-bold text-center mb-2">
                     Log In to miCarrito
                 </a>
+                <app-loading [isLoading]="isLoading"></app-loading>
+                
+                <form [formGroup]="loginForm" (keydown.enter)="onSubmit()" class="flex flex-col gap-4">
                 <input 
+                        type="email" required
+                        formControlName="mail"
                         class="border border-gray-400 rounded-lg p-3 bg-primary w-96 
                             hover:border-gray-600 placeholder:text-black 
                             focus:placeholder:text-gray-400 focus:border-gray-300 transition-colors duration-500
                             placeholder:text-xs" 
                         placeholder="Email">
+                        <p *ngIf="loginForm.get('mail')?.invalid && (loginForm.get('mail')?.touched || loginForm.get('mail')?.dirty)"
+                                class="text-secondary text-xs">
+                                {{ getErrorMessage('mail') }}
+                        </p>
 
-                <input class="border border-gray-400 rounded-lg p-3 text-white w-96 hover:border-gray-600
+                <input 
+                        type="password" required
+                        formControlName="password"
+                        class="border border-gray-400 rounded-lg p-3 text-white w-96 hover:border-gray-600
                             placeholder:text-black focus:placeholder:text-white focus:placeholder:font-medium
                             focus:bg-secondary transition-colors duration-500 placeholder:text-xs"
                        placeholder="Password">
-                        
+                       <p *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)"
+                            class="text-secondary text-xs">
+                            {{ getErrorMessage('password') }}
+                    </p>
+                </form>
+
             </div>
     </main>
 
