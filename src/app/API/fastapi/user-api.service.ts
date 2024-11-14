@@ -1,15 +1,15 @@
 import { inject, Injectable } from '@angular/core';
-import { Login, User, UserResponse } from '../domains/auth/interfaces/user.interface';
+import { Login, User, UserResponse } from './../../../app/domains/auth/interfaces/user.interface';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../enviroments/enviroment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserAPIService {
 
-  apiUrl = 'https://micarritoapi.onrender.com'
-
+  apiUrl = environment.fastAPIUrl
   http = inject(HttpClient)
 
  

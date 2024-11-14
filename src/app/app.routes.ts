@@ -8,12 +8,14 @@ import { AdminGuard } from './guards/admin.guard';
 import { AuthLogoutGuard } from './guards/auth-logout.guard';
 import { CreateProductComponent } from './domains/admin/components/create-product/create-product.component';
 import { AllProductsComponent } from '@shared/components/all-products/all-products.component';
+import { SearchByNameComponent } from '@shared/components/search-by-name/search-by-name.component';
+import { SearchByIdComponent } from '@shared/components/search-by-id/search-by-id.component';
 
 export const routes: Routes = [
     {
         path: 'login',
         component: LoginComponent,
-        canActivate: [AuthLogoutGuard]
+        //canActivate: [AuthLogoutGuard]
     },
     {
         path: 'signup',
@@ -44,6 +46,14 @@ export const routes: Routes = [
                     {
                         path: 'get-all-products',
                         component: AllProductsComponent
+                    },
+                    {
+                        path: 'search-by-name/:name',
+                        component: SearchByNameComponent
+                    },
+                    {
+                        path: 'search-by-id/:id',
+                        component: SearchByIdComponent
                     },
                     {
                       path: '',

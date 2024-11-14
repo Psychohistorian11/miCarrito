@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -10,4 +10,15 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export default class MenuComponent {
 
+  router = inject(Router)
+
+  onSearchByName(event: Event){
+    const name  = (event.target as HTMLInputElement).value
+    this.router.navigate([`administrator/search-by-name/${name}`])
+  }
+
+  onSearchById(event: Event){
+    const id = (event.target as HTMLInputElement).value
+    this.router.navigate([`administrator/search-by-id/${id}`])
+  }
 }

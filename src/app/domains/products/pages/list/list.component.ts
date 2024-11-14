@@ -26,7 +26,7 @@ export default class ListComponent {
 
   ngOnInit() {
     this.getCategories();
-  }
+  } 
 
   ngOnChanges(changes: SimpleChanges) {
     this.getProducts();

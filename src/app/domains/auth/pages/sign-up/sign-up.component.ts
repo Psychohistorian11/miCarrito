@@ -7,7 +7,7 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 import { NgIf } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { User, UserResponse } from '../../interfaces/user.interface';
-import { UserAPIService } from '../../../../API/user-api.service';
+import { UserAPIService } from '../../../../API/fastapi/user-api.service';
 import { LoadingComponent } from '@shared/components/loading/loading.component';
 
 @Component({

@@ -2,7 +2,7 @@ import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { UserAPIService } from '../../../../API/user-api.service';
+import { UserAPIService } from '../../../../API/fastapi/user-api.service';
 import { Login, UserResponse } from '../../interfaces/user.interface';
 import Swal from 'sweetalert2';
 import { AuthService } from '../../services/auth.service';
@@ -41,13 +41,14 @@ export class LoginComponent {
         this.userAPIservice.login(data).subscribe({
           next: (response: UserResponse) => {
             if (response) {
-              console.log("Answer: ", response);
+
               this.userService.setUser(response)
               if (response.itsadmin) {
                 this.router.navigate(['/administrator']); 
               } else {
                 this.router.navigate(['/']);
               }
+              
             } else {
               Swal.fire({
                 icon: 'error',
