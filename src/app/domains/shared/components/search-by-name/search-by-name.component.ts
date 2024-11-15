@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductAPIService } from '../../../../API/fastapi/product-api.service';
-import { Product, ProductResponse } from '../../../auth/interfaces/product.interface';
+import { Product } from '../../../auth/interfaces/product.interface';
 import { ProductAdminComponent } from '@products/components/product-admin/product-admin.component';
 import { NgFor } from '@angular/common';
 import Swal from 'sweetalert2';
@@ -10,13 +10,12 @@ import Swal from 'sweetalert2';
   selector: 'app-search-by-name',
   standalone: true,
   imports: [ProductAdminComponent, NgFor],
-  templateUrl: './search-by-name.component.html',
-  styleUrl: './search-by-name.component.css'
+  templateUrl: './search-by-name.component.html'
 })
 export class SearchByNameComponent {
 
   name: string = ''
-  products = signal<ProductResponse[]>([]);
+  products = signal<Product[]>([]);
 
 
   constructor(private route: ActivatedRoute,
@@ -32,7 +31,7 @@ export class SearchByNameComponent {
 
   private getProductByName(name: string) {
     this.productAPIservice.getProductbyName(name).subscribe({
-      next: (response: ProductResponse[]) => {
+      next: (response: Product[]) => {
         if (response && response.length > 0) {
           this.products.set(response);
         } else {

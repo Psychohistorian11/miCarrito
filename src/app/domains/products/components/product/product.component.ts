@@ -1,19 +1,17 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Product } from '../../../shared/models/product.model';
-import { UpperCasePipe, CurrencyPipe,DatePipe } from '@angular/common';
-import { ReversePipe } from '@shared/pipes/reverse.pipe';
-import { TimeAgoPipe } from '@shared/pipes/time-ago.pipe';
+import { UpperCasePipe, CurrencyPipe, NgIf } from '@angular/common';
 import { RouterLinkWithHref } from '@angular/router';
+import { Product } from '../../../auth/interfaces/product.interface';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [UpperCasePipe, CurrencyPipe, TimeAgoPipe, RouterLinkWithHref],
-  templateUrl: './product.component.html',
-  styleUrl: './product.component.css'
+  imports: [UpperCasePipe, CurrencyPipe, RouterLinkWithHref, NgIf],
+  templateUrl: './product.component.html'
 })
+
 export class ProductComponent {
-    @Input({required: true}) product!: Product 
+    @Input({required: true}) product!: Product
 
     @Output() addToCart = new EventEmitter();
 

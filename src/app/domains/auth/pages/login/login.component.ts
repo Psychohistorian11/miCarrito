@@ -13,8 +13,7 @@ import { LoadingComponent } from '@shared/components/loading/loading.component';
   selector: 'app-login',
   standalone: true,
   imports: [RouterLink, NgIf, ReactiveFormsModule, LoadingComponent],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  templateUrl: './login.component.html'
 })
 export class LoginComponent {
 

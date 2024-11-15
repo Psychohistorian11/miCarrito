@@ -4,15 +4,14 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { SupabaseService } from '../../../../API/supabase/supabase.service';
 import { ProductAPIService } from '../../../../API/fastapi/product-api.service';
 import { LoadingComponent } from '@shared/components/loading/loading.component';
-import { ProductResponse } from '../../../auth/interfaces/product.interface';
 import Swal from 'sweetalert2';
+import { Product } from '../../../auth/interfaces/product.interface';
 
 @Component({
   selector: 'app-create-product',
   standalone: true,
   imports: [ReactiveFormsModule, NgIf, NgClass, LoadingComponent],
-  templateUrl: './create-product.component.html',
-  styleUrl: './create-product.component.css'
+  templateUrl: './create-product.component.html'
 })
 export class CreateProductComponent {
 
@@ -31,6 +30,7 @@ export class CreateProductComponent {
       description: ['', Validators.required],
       image: [''],
       price: ['', [Validators.required, Validators.min(0)]],
+      category: ['', Validators.required],
       discount: ['', [Validators.min(0), Validators.max(100)]],
       stock: ['', [Validators.required, Validators.min(0)]]
     });
@@ -68,7 +68,7 @@ export class CreateProductComponent {
       };
 
       this.productAPIservice.createProduct(data).subscribe({
-        next: (response: ProductResponse) => {
+        next: (response: Product) => {
           if(response){
             Swal.fire({
               icon: 'success',

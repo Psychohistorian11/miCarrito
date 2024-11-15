@@ -5,10 +5,10 @@
     <div class="ml-6 mb-6 mt-6">
         <p class=" border-b-2 border-black"> Creations</p>
         <div class="p-4">
-            <a routerLink="create-product" class="bg-green-400 p-2 rounded-md cursor-pointer">Create new product</a>
+            <a routerLink="create-product" class="bg-action hover:bg-actionHover text-white transition-all hover:scale-105 p-2 rounded-md cursor-pointer">Create new product</a>
         </div>
         <div class="p-4">
-            <a routerLink="get-all-products" class="bg-blue-400 p-2 rounded-md">Get all the products</a>
+            <a routerLink="get-all-products" class="bg-action hover:bg-actionHover text-white transition-all hover:scale-105 p-2 rounded-md">Get all the products</a>
         </div>
     </div>
 
@@ -17,11 +17,15 @@
         <div class="pt-4 pl-4">
             <input (keydown.enter)="onSearchByName($event)" type="text" required
             class="p-2 rounded-md border border-black placeholder:text-gray-700" placeholder="search by name">       
-         </div>
+        </div>
+        <div class="pt-4 pl-4">
+           <input (keydown.enter)="onSearchByPrice($event)" type="number" required
+           class="p-2 rounded-md border border-black placeholder:text-gray-700" placeholder="search by price">       
+        </div>  
          <div class="pt-4 pl-4">
             <input (keydown.enter)="onSearchById($event)" type="number" required
             class="p-2 rounded-md border border-black placeholder:text-gray-700" placeholder="search by idProduct">       
-         </div>   
+         </div>
     </div>
 </aside>
 

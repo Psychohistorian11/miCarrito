@@ -1,10 +1,10 @@
-<main class="flex-grow flex items-center gap-10">
+<main class="flex-grow flex items-center gap-10" *ngIf="editForm">
     <div class="flex flex-col gap-2 md:pt-20 md:pb-20 md:p-10 border-2 sm:mt-10 md:rounded-lg items-center bg-white">
-      <h1 class="text-4xl font-sans font-bold text-center mb-6">Add New Product</h1>
+      <h1 class="text-4xl font-sans font-bold text-center mb-6">Edit Product</h1>
 
       <app-loading [isLoading]="isLoading"></app-loading>
   
-      <form [formGroup]="createForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
+      <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
         <input formControlName="name" placeholder="Name" type="text" 
                class="border border-gray-400 rounded-lg p-3 bg-primary w-96 hover:border-gray-600
                 placeholder:text-black focus:placeholder:text-gray-400 placeholder:text-xs" />
@@ -42,12 +42,12 @@
                 placeholder:text-black focus:placeholder:text-gray-400 placeholder:text-xs" />
   
         <button type="submit" class="bg-secondary text-white rounded-lg p-3 w-96 font-semibold
-         hover:bg-primary transition-colors duration-500">Create</button>
+         hover:bg-primary transition-colors duration-500">Edit</button>
       </form> 
     </div>
   
 
-      <div class="image-container border-2 rounded-t-lg w-96 h-96 flex items-center justify-center
+    <div class="image-container border-2 rounded-t-lg w-96 h-96 flex items-center justify-center
       bg-gray-100 relative cursor-pointer overflow-hidden"
       (click)="imageInput.click()">
     <input #imageInput type="file" (change)="onImageSelected($event)" hidden />

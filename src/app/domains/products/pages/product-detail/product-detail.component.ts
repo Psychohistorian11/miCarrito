@@ -1,47 +1,45 @@
 import { Component, Input, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductService } from '@shared/services/product.service';
-import { Product } from '@shared/models/product.model';
 import { CartService } from '@shared/services/cart.service';
+import { ProductAPIService } from '../../../../API/fastapi/product-api.service';
+import { Product } from '../../../auth/interfaces/product.interface';
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.css']
+  templateUrl: './product-detail.component.html'
 })
 export default class ProductDetailComponent {
 
-  @Input() id?: string;
+  @Input() id?: number;
   product = signal<Product | null>(null);
   cover = signal('');
-  private productService = inject(ProductService);
   private cartService = inject(CartService);
+  private productAPIservice = inject(ProductAPIService)
 
   ngOnInit() {
     if (this.id) {
-      this.productService.getOne(this.id)
+      this.productAPIservice.getProductbyId(this.id)
       .subscribe({
         next: (product) => {
           this.product.set(product);
-          if (product.images.length > 0) {
-            this.cover.set(product.images[0])
-          }
         }
       })
     }
     
   }
 
-  changeCover(newImg: string) {
-    this.cover.set(newImg);
-  }
-
   addToCart() {
     const product = this.product();
     if (product) {
-      this.cartService.addToCart(product);
+      const discountedPrice = product.price * (1 - (product.discount / 100));
+      
+      const productWithDiscount = {
+        ...product,
+        price: discountedPrice
+      };
+        this.cartService.addToCart(productWithDiscount);
     }
   }
 

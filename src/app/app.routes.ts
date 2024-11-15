@@ -8,8 +8,11 @@ import { AdminGuard } from './guards/admin.guard';
 import { AuthLogoutGuard } from './guards/auth-logout.guard';
 import { CreateProductComponent } from './domains/admin/components/create-product/create-product.component';
 import { AllProductsComponent } from '@shared/components/all-products/all-products.component';
-import { SearchByNameComponent } from '@shared/components/search-by-name/search-by-name.component';
+
 import { SearchByIdComponent } from '@shared/components/search-by-id/search-by-id.component';
+import { SearchByPriceComponent } from '@shared/components/search-by-price/search-by-price.component';
+import { SearchByNameComponent } from '@shared/components/search-by-name/search-by-name.component';
+import { EditProductComponent } from './domains/admin/components/edit-product/edit-product.component';
 
 export const routes: Routes = [
     {
@@ -48,12 +51,20 @@ export const routes: Routes = [
                         component: AllProductsComponent
                     },
                     {
+                        path: 'edit-product/:id',
+                        component: EditProductComponent
+                    },
+                    {
                         path: 'search-by-name/:name',
                         component: SearchByNameComponent
                     },
                     {
                         path: 'search-by-id/:id',
                         component: SearchByIdComponent
+                    },
+                    {
+                        path: 'search-by-price/:price',
+                        component: SearchByPriceComponent
                     },
                     {
                       path: '',

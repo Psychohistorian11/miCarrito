@@ -15,7 +15,6 @@ import { LoadingComponent } from '@shared/components/loading/loading.component';
   standalone: true,
   imports: [RouterLink, NgIcon, ReactiveFormsModule, NgIf, LoadingComponent],
   templateUrl: './sign-up.component.html',
-  styleUrl: './sign-up.component.css' ,
   providers: [provideIcons({heroUser, heroAcademicCap, bootstrapFacebook,
      bootstrapTwitterX, bootstrapInstagram}), provideNgIconsConfig({size:'1.5em'})]
 })

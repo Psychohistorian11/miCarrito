@@ -5,8 +5,7 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
   selector: 'app-menu',
   standalone: true,
   imports: [RouterOutlet, RouterLink],
-  templateUrl: './menu.component.html',
-  styleUrl: './menu.component.css'
+  templateUrl: './menu.component.html'
 })
 export default class MenuComponent {
 
@@ -20,5 +19,10 @@ export default class MenuComponent {
   onSearchById(event: Event){
     const id = (event.target as HTMLInputElement).value
     this.router.navigate([`administrator/search-by-id/${id}`])
+  }
+
+  onSearchByPrice(event: Event){
+    const price = (event.target as HTMLInputElement).value
+    this.router.navigate([`administrator/search-by-price/${price}`])
   }
 }

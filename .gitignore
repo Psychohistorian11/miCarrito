@@ -43,6 +43,6 @@ Thumbs.db
 .vercel
 
 # Environments
-src/enviroments/enviroment.ts
 src/app/enviroments/enviroment.ts
+src/enviroments/enviroment.ts
 

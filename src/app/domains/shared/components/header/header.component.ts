@@ -8,8 +8,7 @@ import { AuthService } from '../../../auth/services/auth.service';
   selector: 'app-header',
   standalone: true,
   imports: [CommonModule, RouterLinkWithHref, RouterLinkActive],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  templateUrl: './header.component.html'
 })
 export class HeaderComponent {
 
@@ -28,5 +27,9 @@ export class HeaderComponent {
 
     itsAdmin(){
       return this.authAservice.itsAdmin()
+    }
+
+    checkout(){
+      
     }
 }
