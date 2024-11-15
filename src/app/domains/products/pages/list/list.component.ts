@@ -19,8 +19,8 @@ export default class ListComponent {
   categories = signal<any>([]);
   private cartService = inject(CartService);
   isLoading: boolean = false
+  selectedCategory: string = ''; 
 
-  //private productService = inject(ProductService);
   private productAPIservice = inject(ProductAPIService)
   @Input() category_id?: string;
 
@@ -85,6 +85,7 @@ export default class ListComponent {
   }
 
   getProductByCategory(category: string){
+    this.selectedCategory = category; 
     this.isLoading = true
       this.productAPIservice.getProductbyCategory(category).subscribe({
         next: (response: Product[]) => {

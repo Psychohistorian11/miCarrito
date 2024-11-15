@@ -62,12 +62,7 @@ export class ProductAPIService {
       { id: 3, name: 'technology'},
       { id: 4, name: 'clothing'},
       { id: 5, name: 'furniture'},
-      { id: 6, name: 'books'},
-      { id: 7, name: 'beauty'},
-      { id: 8, name: 'sports'},
-      { id: 9, name: 'toys'},
-      { id: 10, name: 'automotive'},
-      { id: 11, name: 'groceries'}
+      { id: 6, name: 'books'}
 
         ]
 

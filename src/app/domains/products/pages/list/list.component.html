@@ -5,11 +5,19 @@
             <h2 class="text-lg font-semibold mb-4 bg-secondary p-2 text-white rounded-r-lg">Categories</h2>
             <ul class="space-y-2">
                 <li>
-                    <a (click)="getProducts()" class="block p-2 rounded-lg hover:bg-gray-200">All</a>
+                    <a (click)="getProducts()"
+                       [ngClass]="{'bg-gray-300': selectedCategory === '', 'hover:bg-gray-200': selectedCategory !== ''}"
+                       class="block p-2 rounded-r-lg cursor-pointer">
+                       All
+                    </a>
                 </li>
                 <li *ngFor="let category of categories()">
                     <a (click)="getProductByCategory(category.name)"
-                       class="block p-2 rounded-lg hover:bg-gray-200 cursor-pointer">
+                       [ngClass]="{
+                          'bg-actionHover text-white': selectedCategory === category.name,
+                          'hover:bg-gray-200': selectedCategory !== category.name
+                       }"
+                       class="block p-2 rounded-r-lg cursor-pointer">
                         {{ category.name }}
                     </a>
                 </li>

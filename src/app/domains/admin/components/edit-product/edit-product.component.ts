@@ -100,6 +100,7 @@ export class EditProductComponent {
       this.productAPIservice.updateProduct(data).subscribe({
         next: (response: Product) => {
           if (response) {
+            this.isLoading = false;
             Swal.fire({
               icon: 'success',
               title: 'Product successfully edited',
